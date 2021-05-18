@@ -55,6 +55,27 @@ const createRoutedDummyComponent = (url:string, routed = true) => {
     }
 };
 
+const createUnspecifiedDummyComponent = (url:string) => {
+    const history:MemoryHistory = createMemoryHistory({
+        initialEntries: ['/page1'],
+        initialIndex: 0
+    });
+    return {
+        ...render(
+            <Router history={history}>
+                <Switch>
+                    <Route exact={true} path={"/page2"}>
+                        <div><h1 className={"dummy"}>Hello World</h1></div>
+                    </Route>
+                    <Route exact={true} path={"/page1"}>
+                        <RoutedDummyComponent url={url}/>
+                    </Route>
+                </Switch>
+            </Router>
+        )
+    }
+};
+
 it('Renders and routes properly', () => {
 
 
@@ -77,7 +98,26 @@ it('Renders and routes properly', () => {
 
 });
 
+it('Does route if the link is relative and isRouted is not specified', () => {
 
+    const { container } = createUnspecifiedDummyComponent("/page3");
+
+    const image:HTMLElement|null = container.querySelector('.routedDummyComponent');
+
+    expect(image).toBeDefined();
+
+    const anchor = container.querySelector('a.dummyLink');
+
+    expect(anchor).toBeDefined();
+
+    if(anchor != null){
+        fireEvent.click(anchor);
+    }
+
+    const h1 = container.querySelector("h1.dummy");
+    expect(h1).toBeDefined();
+
+});
 
 it('Does NOT route if the link is empty', () => {
 

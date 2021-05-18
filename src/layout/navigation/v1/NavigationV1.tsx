@@ -47,7 +47,7 @@ export const NavigationV1Group = (item:NavigationV1Item) => {
             {!!item.children && item.children.length > 0 &&  (
                 <ul  className={item.baseCssClass + '__group'}>
                     {item.children.map(
-                        (item,index) => <NavigationV1Item key={item.baseCssClass + '__item-' + index} {...item} index={index}/>
+                        (child,index) => <NavigationV1Item key={item.baseCssClass + '__item-' + index} {...child} index={index} baseCssClass={item.baseCssClass}/>
                     )}
                 </ul>
             )}
@@ -67,7 +67,7 @@ export const NavigationV1Item = (item:NavigationV1Item) => {
                     className={item.baseCssClass + '__item-link'}>{item.title
                }</RoutedLink>
                 {
-                    !!item.children && item.children.length > 0 && <NavigationV1Group {...item}/>
+                    !!item.children && item.children.length > 0 && <NavigationV1Group {...item} baseCssClass={item.baseCssClass}/>
                 }
         </li>
     )
@@ -91,7 +91,7 @@ export const NavigationV1Impl = (props:NavigationV1Model) => {
              role="navigation"
              itemScope itemType="http://schema.org/SiteNavigationElement"
              aria-label={props.accessibilityLabel}>
-            <NavigationV1Group {...selfClone}/>
+            <NavigationV1Group {...selfClone} baseCssClass={props.baseCssClass}/>
         </nav>
     )
 

@@ -25,6 +25,8 @@ export interface LinkProps {
 export const RoutedLink = (props:LinkProps) => {
     const {to, isRouted, ...otherProps} = props;
 
+    const isRoutedChecked = (typeof isRouted === 'boolean' && isRouted === false) ? false : true;
+
     if(to === undefined || to.trim().length === 0){
         return <a href={'#'}
             {...otherProps}
@@ -32,7 +34,7 @@ export const RoutedLink = (props:LinkProps) => {
     }
     const isExternal = /^https?:\/\//.test(to);
 
-    return isExternal || !isRouted?
+    return isExternal || !isRoutedChecked?
         (<a
             href={to}
             {...otherProps}
