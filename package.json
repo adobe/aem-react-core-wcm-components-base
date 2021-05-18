@@ -19,7 +19,7 @@
   "homepage": "https://github.com/adobe/aem-react-core-wcm-components/blob/master/README.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/adobe/aem-react-core-wcm-components"
+    "url": "https://github.com/adobe/aem-react-core-wcm-components-base"
   },
   "scripts": {
     "clean": "shx rm -rf coverage/ dist/ src/tsconfig.types.tsbuildinfo",
