@@ -9,6 +9,7 @@
     "react",
     "core",
     "components"
+
   ],
   "description": "AEM - React Implementation for the AEM Core Components",
   "author": {
