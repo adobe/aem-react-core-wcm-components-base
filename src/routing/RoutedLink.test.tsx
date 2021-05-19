@@ -76,6 +76,17 @@ const createUnspecifiedDummyComponent = (url:string) => {
     }
 };
 
+let oldConsoleError:()=>void;
+
+beforeAll(() => {
+    oldConsoleError = console.error;
+    console.error = jest.fn();
+});
+
+afterAll(() => {
+    console.error = oldConsoleError;
+});
+
 it('Renders and routes properly', () => {
 
 
