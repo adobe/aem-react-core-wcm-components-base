@@ -1,6 +1,6 @@
 {
   "name": "@adobe/aem-core-components-react-base",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "license": "Apache-2.0",
   "keywords": [
     "adobe",
@@ -124,5 +124,15 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      ["@semantic-release/git", {
+        "assets": ["package.json"]
+      }]
+    ]
   }
 }
