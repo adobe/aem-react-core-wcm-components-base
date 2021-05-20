@@ -36,9 +36,9 @@ it('Renders without crashing', () => {
 
 it('Renders breadcrumb items if provided', () => {
     const items:BreadCrumbV2ItemModel[] = [
-        {active:false,url:'/content/some/url.html',title:'Item1'},
-        {active:false,url:'/content/some/url.html',title:'Item2'},
-        {active:true,url:'/content/some/url.html',title:'Item3'}
+        {active:false,url:'/content/some/url.html',title:'Item1', routed: false},
+        {active:false,url:'/content/some/url.html',title:'Item2', routed: false},
+        {active:true,url:'/content/some/url.html',title:'Item3', routed: false}
     ];
 
 

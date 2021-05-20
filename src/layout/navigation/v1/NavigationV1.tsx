@@ -19,6 +19,7 @@ import {HasBaseCssClass, withConditionalPlaceHolder, withStandardBaseCssClass} f
 import {RoutedCoreComponentModel, RoutedModel} from "../../../routing/RoutedCoreComponent";
 import {RoutedLink} from "../../../routing/RoutedLink";
 import {NavigationV1IsEmptyFn} from "./NavigationV1IsEmptyFn";
+import {LanguageNavigationV1Item} from "../../language-navigation/v1/LanguageNavigationV1";
 
 export interface NavigationV1Item extends RoutedModel,HasBaseCssClass{
     level: number,
@@ -47,7 +48,12 @@ export const NavigationV1Group = (item:NavigationV1Item) => {
             {!!item.children && item.children.length > 0 &&  (
                 <ul  className={item.baseCssClass + '__group'}>
                     {item.children.map(
-                        (child,index) => <NavigationV1Item key={item.baseCssClass + '__item-' + index} {...child} index={index} baseCssClass={item.baseCssClass}/>
+                        (child,index) =>
+                            <NavigationV1Item key={item.baseCssClass + '__item-' + index}
+                                              {...child} index={index}
+                                              baseCssClass={item.baseCssClass}
+                                              routed={typeof child.routed === 'boolean' ? child.routed : item.routed}
+                            />
                     )}
                 </ul>
             )}
@@ -83,6 +89,7 @@ export const NavigationV1Impl = (props:NavigationV1Model) => {
         path: "",
         title: "",
         url: "",
+        routed: props.routed,
         children: props.items
     };
 

@@ -26,6 +26,7 @@ it('Renders without crashing', () => {
         hidePlaceHolder: false,
         isInEditor: false,
         linkDisabled: false,
+        routed: false,
         text: 'Hello World'
     };
 
@@ -43,6 +44,7 @@ it('Renders without link', () => {
     const props:TitleV2Model = {
         hidePlaceHolder: false,
         isInEditor: false,
+        routed: false,
         linkDisabled: false,
         text: 'My awesome title'
     };
@@ -61,6 +63,7 @@ it('Renders a custom type without link', () => {
         hidePlaceHolder: false,
         isInEditor: false,
         linkDisabled: false,
+        routed: false,
         type: 'h2',
         text: 'My awesome title'
     };
@@ -80,6 +83,7 @@ it('Renders a custom type with a link', () => {
         hidePlaceHolder: false,
         isInEditor: false,
         linkDisabled: false,
+        routed: false,
         type: 'h2',
         text: 'My awesome title',
         linkURL: '/content/some/page.html'

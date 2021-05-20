@@ -89,7 +89,11 @@ export const ListV2Impl = (props:ListV2Model) => {
 
     return (
         <ul className={props.baseCssClass}>
-            {props.items.map((item, index) => <ListV2Item {...item} key={"cmp-list-" + index} baseCssClass={props.baseCssClass} routed={item.routed} index={index}  />)}
+            {props.items.map((item, index) =>
+                <ListV2Item {...item} key={"cmp-list-" + index}
+                            baseCssClass={props.baseCssClass}
+                            routed={typeof item.routed === 'boolean' ? item.routed : props.routed}
+                            index={index}  />)}
         </ul>
     )
 };

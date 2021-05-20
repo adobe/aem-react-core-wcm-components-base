@@ -59,6 +59,7 @@ const TeaserV1PreTitle = (props:TeaserV1Model) => <div className={props.baseCssC
 const TeaserV1Title = (props:TeaserV1Model) => 
         <TitleV1 baseCssClass={props.baseCssClass + '__title'}
                  nested={true}
+                 routed={props.routed}
                  type={props.titleType}
                  isInEditor={props.isInEditor}
                  linkDisabled={false}

@@ -24,6 +24,7 @@ const defaultProps:TeaserV1Model = {
     imageAlt: "snowy mountains",
     imagePath: "/some/image.png",
     description: '<p>Paragraph</p>',
+    routed: false,
     actions: [
         {
             routed: false,

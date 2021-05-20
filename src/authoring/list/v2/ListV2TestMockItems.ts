@@ -210,6 +210,7 @@ export const dummyProps:ListV2Model = {
     showDescription: true,
     showModificationDate: true,
     linkItems: true,
+    routed: false,
     items: mockItems
 };
 

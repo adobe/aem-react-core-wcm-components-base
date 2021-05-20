@@ -64,7 +64,12 @@ export const LanguageNavigationV1Group = (item:LanguageNavigationV1Item) => {
             {!!item.children && item.children.length > 0 &&  (
                 <ul className={item.baseCssClass + '__group'}>
                     {item.children.map(
-                        (child,index) => <LanguageNavigationV1Item {...child} key={item.baseCssClass + '__item-' + index} index={index} baseCssClass={item.baseCssClass}/>
+                        (child,index) =>
+                            <LanguageNavigationV1Item {...child}
+                                                      key={item.baseCssClass + '__item-' + index}
+                                                      index={index}
+                                                      routed={typeof child.routed === 'boolean' ? child.routed : item.routed}
+                                                      baseCssClass={item.baseCssClass}/>
                     )}
                 </ul>
             )}
@@ -101,6 +106,7 @@ const LanguageNavigationV1Impl = (props:LanguageNavigationV1Model) => {
         language: "",
         country: "",
         locale: "",
+        routed: props.routed,
         children: props.items
     };
 
@@ -109,7 +115,7 @@ const LanguageNavigationV1Impl = (props:LanguageNavigationV1Model) => {
              role="navigation"
              itemScope itemType="http://schema.org/SiteNavigationElement"
              aria-label={props.accessibilityLabel}>
-            <LanguageNavigationV1Group {...selfClone} baseCssClass={props.baseCssClass}/>
+            <LanguageNavigationV1Group {...selfClone} baseCssClass={props.baseCssClass} />
         </nav>
     )
 };

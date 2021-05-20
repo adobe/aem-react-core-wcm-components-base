@@ -26,7 +26,7 @@ import {MemoryRouter} from 'react-router-dom';
 it('Renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
-        <NavigationV1 items={items} {...items} />,
+        <NavigationV1 items={items} {...items} routed={false} />,
         div
     );
     ReactDOM.unmountComponentAtNode(div);
@@ -39,6 +39,7 @@ it('Renders a basic navigation properly', () => {
     const properties:NavigationV1Model = {
         hidePlaceHolder: false,
         isInEditor: false,
+        routed: false,
         items: items
     };
     const wrapper = mount(<NavigationV1  {...properties} />);
