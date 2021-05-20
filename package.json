@@ -1,6 +1,6 @@
 {
   "name": "@adobe/aem-core-components-react-base",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "license": "Apache-2.0",
   "keywords": [
     "adobe",
@@ -130,9 +130,14 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      ["@semantic-release/git", {
-        "assets": ["package.json"]
-      }]
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ]
+        }
+      ]
     ]
   }
 }
