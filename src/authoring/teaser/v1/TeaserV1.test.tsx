@@ -61,7 +61,7 @@ it('Renders as expected', ()=> {
 
     const content = element.find(".cmp-teaser__content");
     expect(content).toHaveLength(1);
-    
+
     //description
     const description = content.find('.cmp-teaser__description');
     expect(description).toHaveLength(1);
@@ -75,8 +75,8 @@ it('Renders as expected', ()=> {
     //title
     const title = content.find('.cmp-teaser__title');
     expect(title).toHaveLength(1);
-    const expectedHtml = `<div class=\"cmp-teaser__title\"><${defaultProps.titleType} class=\"cmp-teaser__title-text\"><a href=\"${defaultProps.linkURL}" class=\"cmp-teaser__title-link\">${defaultProps.title}</a></${defaultProps.titleType}></div>`;
-    expect(title.html()).toEqual(expectedHtml);
+    const expectedTitleHtml = `<div class=\"cmp-teaser__title\"><${defaultProps.titleType} class=\"cmp-teaser__title-text\"><a href=\"${defaultProps.linkURL}" class=\"cmp-teaser__title-link\">${defaultProps.title}</a></${defaultProps.titleType}></div>`;
+    expect(title.html()).toEqual(expectedTitleHtml);
 
 
     //image
@@ -91,9 +91,10 @@ it('Renders as expected', ()=> {
     //actions
     const actionContainer = element.find(".cmp-teaser__action-container");
     expect(actionContainer).toHaveLength(1);
+    const expectedActionContainerHtml = `<div class=\"cmp-teaser__action-container\"><a href="${defaultProps.actions[0].URL}" class="cmp-teaser__action-link">${defaultProps.actions[0].title}</a><a href="${defaultProps.actions[1].URL}" class="cmp-teaser__action-link">${defaultProps.actions[1].title}</a></div>`;
+    expect(actionContainer.html()).toEqual(expectedActionContainerHtml);
 
     const actions = actionContainer.find("a.cmp-teaser__action-link");
     expect(actions).toHaveLength(2);
-
 
 });
