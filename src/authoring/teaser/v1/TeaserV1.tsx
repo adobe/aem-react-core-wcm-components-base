@@ -43,7 +43,7 @@ export interface TeaserV1Model extends RoutedCoreComponentModel{
 }
 
 const generateLink = (props:TeaserV1Model, action:TeaserV1Action, index:number) => {
-    return <RoutedLink key={"link-" + index} isRouted={props.routed} className={props.baseCssClass + '__action-link'} to={action.URL}>${action.title}</RoutedLink>
+    return <RoutedLink key={"link-" + index} isRouted={props.routed} className={props.baseCssClass + '__action-link'} to={action.URL}>{action.title}</RoutedLink>
 }
 
 const TeaserV1Image = (props:TeaserV1Model) => {
@@ -56,7 +56,7 @@ const TeaserV1Image = (props:TeaserV1Model) => {
 
 const TeaserV1PreTitle = (props:TeaserV1Model) => <div className={props.baseCssClass + '__pretitle'}>{props.pretitle}</div>;
 
-const TeaserV1Title = (props:TeaserV1Model) => 
+const TeaserV1Title = (props:TeaserV1Model) =>
         <TitleV1 baseCssClass={props.baseCssClass + '__title'}
                  nested={true}
                  routed={props.routed}
